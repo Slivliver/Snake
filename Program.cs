@@ -1,7 +1,6 @@
-﻿using System;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
+﻿//Made by Daniel Silver
+
+using System;
 using System.Threading;
 namespace Snake____final_version
 {
@@ -543,7 +542,69 @@ namespace Snake____final_version
                 Console.Write("    Made by: ");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("DANIEL SILVER");
-                Thread.Sleep(2000);
+
+                /*int time = 3;
+
+                Console.Beep(523, time * 240);
+                Console.Beep(523, time * 240);
+                Console.Beep(523, time * 240);
+                Console.Beep(392, time * 80);
+                Console.Beep(440, time * 160);
+                Console.Beep(392, time * 80);
+                Console.Beep(622, time * 160);
+                Console.Beep(622, time * 160);
+                Console.Beep(587, time * 240);
+                Console.Beep(392, time * 80);
+                Console.Beep(440, time * 160);
+                Console.Beep(392, time * 80);
+                
+                Console.Beep(523, time * 240);
+                Console.Beep(523, time * 240);
+                Console.Beep(523, time * 240);
+                Console.Beep(392, time * 80);
+                Console.Beep(440, time * 160);
+                Console.Beep(392, time * 80);
+                Console.Beep(311, time * 160);
+                Console.Beep(392, time * 80);
+                Console.Beep(311, time * 160);
+                Console.Beep(294, time * 240);
+                Console.Beep(196, time * 80);
+                Console.Beep(220, time * 160);
+                Console.Beep(196, time * 80);
+
+                Console.Beep(262, time * 240);
+                Console.Beep(262, time * 240);
+                Console.Beep(262, time * 240);
+                Console.Beep(196, time * 80);
+                Console.Beep(220, time * 160);
+                Console.Beep(196, time * 80);
+                Console.Beep(622, time * 160);
+                Console.Beep(523, time * 80);
+                Console.Beep(622, time * 160);
+                Console.Beep(587, time * 240);
+                Console.Beep(523, time * 80);
+                Console.Beep(440, time * 160);
+                Console.Beep(392, time * 80);
+                Console.Beep(523, time * 160);
+
+                Console.Beep(311, time * 80);
+                Console.Beep(330, time * 160);
+                Console.Beep(440, time * 80);
+                Console.Beep(392, time * 160);
+                Console.Beep(622, time * 80);
+                Console.Beep(659, time * 160);
+                Console.Beep(880, time * 80);
+                Console.Beep(784, time * 160);
+                Console.Beep(880, time * 80);
+                Console.Beep(988, time * 160);
+                Console.Beep(1047, time * 240);
+                Console.Beep(523, time * 240);*/
+
+
+
+
+
+                Thread.Sleep(5000);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("");
                 Console.WriteLine("  (Press enter to return to menu)");
@@ -849,22 +910,22 @@ namespace Snake____final_version
                         if (snakes.Length > 1)
                         {
                             othersAlive = false;
+                            for (int i = 1; i < snakes.Length; i++)
+                            {
+                                dir2 = snakes[i].snkalg(snakes, apl);
+                                snakes[i].advance(dir2, apl, snakes, true);
+                                snakes[i].delete();
+                                if (snakes[i].isAlive(snakes))
+                                {
+                                    snakes[i].write(arrows);
+                                }
+                                if (!othersAlive)
+                                {
+                                    othersAlive = snakes[i].isAlive(snakes);
+                                }
+                            }
                         }
 
-                        for (int i = 1; i < snakes.Length; i++)
-                        {
-                            dir2 = snakes[i].snkalg(snakes, apl);
-                            snakes[i].advance(dir2, apl, snakes, true);
-                            snakes[i].delete();
-                            if (snakes[i].alive)
-                            {
-                                snakes[i].write(arrows);
-                            }
-                            if (!othersAlive)
-                            {
-                                othersAlive = snakes[i].isAlive(snakes);
-                            }
-                        }
                         Console.SetCursorPosition(0, 0);
 
                         Thread.Sleep(delay);
